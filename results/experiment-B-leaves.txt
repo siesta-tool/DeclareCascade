@@ -1,0 +1,50 @@
+===== B.2.1 LEAVES ostovar =====
+LEAVES | dataset=ostovar sizes=all | K_born=0.99
+
+Final-leaf precision/recall/F1 over 106 scored drifts (8 det-miss)
+
+  leaf          routed  TP  FP  FN   prec    rec     F1
+  LOOP               9   3   6   3   0.33   0.50   0.40   [lp]
+  DUPLICATION        1   0   1   0   0.00   0.00   0.00   [cp]
+  REMOVAL           17   8   9   9   0.47   0.47   0.47   [cre,pre,re]
+  INSERTION         19   3  16   3   0.16   0.50   0.24   [re]
+  SUBSTITUTION       8   6   2   0   0.75   1.00   0.86   [rp]
+  COMPOSITE          1   1   0  31   1.00   0.03   0.06   [ior,iro,oir,ori,rio,roi]
+  BRANCH            15   8   7   2   0.53   0.80   0.64   [cf,cm]
+  SKIP              12   4   8   2   0.33   0.67   0.44   [cb]
+  REORDER           19  16   3   5   0.84   0.76   0.80   [cm,pm,sm,sw]
+  FREQUENCY          0   0   0   6   0.00   0.00   0.00   [cd,fr]
+
+===== B.2.1 LEAVES ceravolo (1000) =====
+LEAVES | dataset=ceravolo sizes=1000 | K_born=0.99
+
+Final-leaf precision/recall/F1 over 70 scored drifts (5 det-miss)
+
+  leaf          routed  TP  FP  FN   prec    rec     F1
+  LOOP               8   5   3   0   0.62   1.00   0.77   [lp]
+  DUPLICATION       10   5   5   0   0.50   1.00   0.67   [cp]
+  REMOVAL            0   0   0   5   0.00   0.00   0.00   [cre,pre,re]
+  INSERTION         15   0  15   5   0.00   0.00   0.00   [re]
+  SUBSTITUTION       0   0   0   5   0.00   0.00   0.00   [rp]
+  COMPOSITE         10  10   0  15   1.00   0.40   0.57   [ior,iro,oir,ori,rio,roi]
+  BRANCH             5   5   0   0   1.00   1.00   1.00   [cf,cm]
+  SKIP               9   5   4   0   0.56   1.00   0.71   [cb]
+  REORDER            8   8   0   2   1.00   0.80   0.89   [cm,pm,sm,sw]
+  FREQUENCY          2   2   0   3   1.00   0.40   0.57   [cd,fr]
+
+===== B.2.1 LEAVES both (1000) =====
+LEAVES | dataset=both sizes=1000 | K_born=0.99
+
+Final-leaf precision/recall/F1 over 176 scored drifts (13 det-miss)
+
+  leaf          routed  TP  FP  FN   prec    rec     F1
+  LOOP              17   8   9   3   0.47   0.73   0.57   [lp]
+  DUPLICATION       11   5   6   0   0.45   1.00   0.62   [cp]
+  REMOVAL           17   8   9  14   0.47   0.36   0.41   [cre,pre,re]
+  INSERTION         34   3  31   8   0.09   0.27   0.13   [re]
+  SUBSTITUTION       8   6   2   5   0.75   0.55   0.63   [rp]
+  COMPOSITE         11  11   0  46   1.00   0.19   0.32   [ior,iro,oir,ori,rio,roi]
+  BRANCH            20  13   7   2   0.65   0.87   0.74   [cf,cm]
+  SKIP              21   9  12   2   0.43   0.82   0.56   [cb]
+  REORDER           27  24   3   7   0.89   0.77   0.83   [cm,pm,sm,sw]
+  FREQUENCY          2   2   0   9   1.00   0.18   0.31   [cd,fr]

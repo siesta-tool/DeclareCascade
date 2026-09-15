@@ -1,0 +1,8 @@
+Label accuracy | dataset=both sizes=1000 | K_born=0.99
+
+  dataset    scored  correct_unamb  correct_resolved  incorrect  unsupported  exact_acc  amb_aware_acc
+  ceravolo       70             40                 0         30            0      0.571          0.571
+  ostovar       106             39                10         57            0      0.462          0.462
+  ALL           176             79                10         87            0      0.506          0.506
+
+Wrote results/label_accuracy_results.csv and results/label_accuracy_summary.csv

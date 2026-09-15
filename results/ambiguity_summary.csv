@@ -1,0 +1,4 @@
+dataset,total_scored,single_gate,multi_gate,ambiguity_rate,resolved_correctly,resolution_rate
+ceravolo,70,24,43,0.6143,20,0.4651
+ostovar,106,37,64,0.6038,21,0.3281
+ALL,176,61,107,0.608,41,0.3832

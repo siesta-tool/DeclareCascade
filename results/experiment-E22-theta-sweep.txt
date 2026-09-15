@@ -1,0 +1,44 @@
+=== K=0.99 ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | confidence=0.99 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.471         100.0         1/1
+Ceravolo      75    0.762          48.6       70/75
+Ostovar       75    0.702          27.7       74/75
+
+Wrote per-log results -> results/cdrift-eval-K0.99.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== K=0.995 ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | confidence=0.995 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.667         100.0         1/1
+Ceravolo      75    0.845          31.4       70/75
+Ostovar       75    0.784          20.0       75/75
+
+Wrote per-log results -> results/cdrift-eval-K0.995.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== K=0.999 ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | confidence=0.999 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.800         100.0         1/1
+Ceravolo      75    0.911           5.7       70/75
+Ostovar       75    0.922          20.7       75/75
+
+Wrote per-log results -> results/cdrift-eval-K0.999.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== K=0.9999 ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | confidence=0.9999 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.889         100.0         1/1
+Ceravolo      75    0.920           0.0       69/75
+Ostovar       75    0.939          15.1       73/75
+
+Wrote per-log results -> results/cdrift-eval-K0.9999.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+

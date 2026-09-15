@@ -1,0 +1,51 @@
+=== xi=0.0 (labelling) ===
+LEAVES | dataset=both sizes=1000 | K_born=0.99
+
+Final-leaf precision/recall/F1 over 176 scored drifts (13 det-miss)
+
+  leaf          routed  TP  FP  FN   prec    rec     F1
+  LOOP              17   8   9   3   0.47   0.73   0.57   [lp]
+  DUPLICATION       11   5   6   0   0.45   1.00   0.62   [cp]
+  REMOVAL           17   8   9  14   0.47   0.36   0.41   [cre,pre,re]
+  INSERTION         34   3  31   8   0.09   0.27   0.13   [re]
+  SUBSTITUTION       8   6   2   5   0.75   0.55   0.63   [rp]
+  COMPOSITE         11  11   0  46   1.00   0.19   0.32   [ior,iro,oir,ori,rio,roi]
+  BRANCH            20  13   7   2   0.65   0.87   0.74   [cf,cm]
+  SKIP              21   9  12   2   0.43   0.82   0.56   [cb]
+  REORDER           27  24   3   7   0.89   0.77   0.83   [cm,pm,sm,sw]
+  FREQUENCY          2   2   0   9   1.00   0.18   0.31   [cd,fr]
+
+=== xi=0.01 (labelling) ===
+LEAVES | dataset=both sizes=1000 | K_born=0.99
+
+Final-leaf precision/recall/F1 over 180 scored drifts (9 det-miss)
+
+  leaf          routed  TP  FP  FN   prec    rec     F1
+  LOOP              15   7   8   2   0.47   0.78   0.58   [lp]
+  DUPLICATION       18   5  13   0   0.28   1.00   0.43   [cp]
+  REMOVAL           16   9   7  14   0.56   0.39   0.46   [cre,pre,re]
+  INSERTION         32   3  29   8   0.09   0.27   0.14   [re]
+  SUBSTITUTION       8   5   3   6   0.62   0.45   0.53   [rp]
+  COMPOSITE         18  17   1  43   0.94   0.28   0.44   [ior,iro,oir,ori,rio,roi]
+  BRANCH            15   9   6   8   0.60   0.53   0.56   [cf,cm]
+  SKIP              24   7  17   4   0.29   0.64   0.40   [cb]
+  REORDER           25  23   2  11   0.92   0.68   0.78   [cm,pm,sm,sw]
+  FREQUENCY          3   2   1   9   0.67   0.18   0.29   [cd,fr]
+
+=== xi=0.05 (labelling) ===
+LEAVES | dataset=both sizes=1000 | K_born=0.99
+
+Final-leaf precision/recall/F1 over 128 scored drifts (61 det-miss)
+
+  leaf          routed  TP  FP  FN   prec    rec     F1
+  LOOP              12   5   7   0   0.42   1.00   0.59   [lp]
+  DUPLICATION       15   5  10   0   0.33   1.00   0.50   [cp]
+  REMOVAL            9   3   6   9   0.33   0.25   0.29   [cre,pre,re]
+  INSERTION         29   1  28   6   0.03   0.14   0.06   [re]
+  SUBSTITUTION       5   2   3   9   0.40   0.18   0.25   [rp]
+  COMPOSITE         14  13   1  44   0.93   0.23   0.37   [ior,iro,oir,ori,rio,roi]
+  BRANCH            11   5   6   4   0.45   0.56   0.50   [cf,cm]
+  SKIP              18   6  12   1   0.33   0.86   0.48   [cb]
+  REORDER           12  11   1   5   0.92   0.69   0.79   [cm,pm,sm,sw]
+  FREQUENCY          0   0   0   8   0.00   0.00   0.00   [cd,fr]
+

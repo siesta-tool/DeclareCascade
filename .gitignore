@@ -1,0 +1,40 @@
+# --- external / vendored ---
+# Benchmark repository (Adams et al.) — cloned separately, see README.
+# No trailing slash: locally this is often a symlink to a checkout elsewhere, and a
+# directory-only pattern would not match it.
+cdrift-evaluation
+# Reference PDFs: publisher copyright, not ours to redistribute.
+papers/
+
+# --- python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+
+# --- agent / editor tooling ---
+sg-data/
+.sg/
+.claude/
+.agents/
+.codex/
+AGENTS.md
+CLAUDE.md
+.vscode/
+.idea/
+SIBYL_GRAPH.md
+scripts/sg
+
+# --- local research notes (not part of the deliverable) ---
+chatgpt-findings/
+PRESENTATION-QA.md
+results/codex-test-plan.md
+PIPELINE_FIGURE_SPEC.md
+eval_specs.md
+scripts/labeling.md
+CODE_EXPLANATION.md

@@ -1,0 +1,15 @@
+CONFIRM (full-regime windows + dual gate) | dataset=both sizes=all | K_born=0.99
+
+=== OSTOVAR — confirmation gates (frac=0.01, lag=200) ===
+  gate                    det-P  det-R  det-F1  e2e-correct
+  all                      0.29   0.93    0.4449/114 (0.43)
+  intensity>=1%            0.76   0.90    0.8348/114 (0.42)
+  dual: int OR label       0.71   0.92    0.8049/114 (0.43)
+  (codes with no expected leaf, always counted wrong: ['pl'])
+
+=== CERAVOLO — confirmation gates (frac=0.01, lag=200) ===
+  gate                    det-P  det-R  det-F1  e2e-correct
+  all                      0.93   0.92    0.9292/225 (0.41)
+  intensity>=1%            0.93   0.90    0.9289/225 (0.40)
+  dual: int OR label       0.93   0.92    0.9292/225 (0.41)
+  (codes with no expected leaf, always counted wrong: ['pl'])

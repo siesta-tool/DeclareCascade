@@ -1,0 +1,4 @@
+dataset,scored,correct_unambiguous,correct_resolved,incorrect,unsupported,exact_accuracy,ambiguity_aware_accuracy
+ceravolo,70,40,0,30,0,0.5714,0.5714
+ostovar,106,39,10,57,0,0.4623,0.4623
+ALL,176,79,10,87,0,0.5057,0.5057

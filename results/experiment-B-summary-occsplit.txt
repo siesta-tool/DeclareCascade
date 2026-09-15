@@ -1,0 +1,58 @@
+===== B.2.2 SUMMARY both (1000) =====
+SUMMARY | dataset=both sizes=1000 | test=z K=0.999
+
+Per-pattern routing (tree precedence OCC -> BRANCH -> OTHER):
+  pat   scored  routed-bucket distribution
+  cb        11  SKIP:9, OTHER:2
+  cd         5  OTHER:3, FREQUENCY:2
+  cf        11  BRANCH:11
+  cm         4  BRANCH:2, REORDER:2
+  cp         5  OCC:5
+  cre        5  OCC:5
+  fr         6  SKIP:4, OCC:1, BRANCH:1
+  ior       11  OCC:11
+  iro        8  OCC:8
+  lp        11  OCC:8, OTHER:3
+  oir       11  OCC:11
+  ori        5  OCC:3, BRANCH:2
+  pl         6  REORDER:3, BRANCH:2, SKIP:1
+  pm        11  REORDER:9, SKIP:2
+  pre        6  OCC:6
+  re        11  OCC:9, SKIP:2
+  rio       11  OCC:9, BRANCH:2
+  roi       11  OCC:11
+  rp        11  OCC:11
+  sm         5  REORDER:4, SKIP:1
+  sw        11  REORDER:9, SKIP:2
+
+Validated buckets (recall over member patterns, specificity over non-members):
+  OCC     recall 97/106   specificity 69/70 (false-fires 1)   members=['cp', 'cre', 'ior', 'iro', 'lp', 'oir', 'ori', 'pre', 're', 'rio', 'roi', 'rp']
+  BRANCH  recall 13/15   specificity 154/161 (false-fires 7)   members=['cf', 'cm']
+  SKIP    recall 9/11   specificity 153/165 (false-fires 12)   members=['cb']
+  REORDER recall 24/31   specificity 142/145 (false-fires 3)   members=['cm', 'pm', 'sm', 'sw']
+  FREQUENCY recall 2/11   specificity 165/165 (false-fires 0)   members=['cd', 'fr']
+
+OTHER (residual, no validated lens yet): patterns landing here = ['cb', 'cd', 'lp']
+
+Per-bucket confusion (full tree routing; each drift -> exactly one bucket):
+  bucket    routed   TP   FP   FN  precision   recall
+  OCC           98   97    1    9       0.99     0.92
+  BRANCH        20   13    7    2       0.65     0.87
+  SKIP          21    9   12    2       0.43     0.82
+  REORDER       27   24    3    7       0.89     0.77
+  FREQUENCY      2    2    0    9       1.00     0.18
+  OTHER          8    -    -    -          -        -  (unbucketed residual)
+  total scored drifts: 176; det-misses: 13
+
+===== B.2.3 OCCSPLIT both (1000) =====
+OCCSPLIT | dataset=both sizes=1000 | K_born=0.99
+
+OCC sub-layers (ordered peel) over 98 OCC-bucketed drifts:
+
+  layer           n  op-correct  op-prec   labels
+  DUPLICATION    11          11     1.00   rio:6, cp:5
+  LOOP           17          17     1.00   lp:8, ori:3, rio:3, re:3
+  REMOVAL        17          17     1.00   pre:3, re:3, ior:3, oir:3, roi:3, cre:2
+  INSERTION      34          33     0.97   ior:8, roi:8, rp:5, cre:3, pre:3, re:3, oir:3, fr:1
+  SUBSTITUTION    8           6     0.75   rp:6, iro:2
+  COMPOSITE      11          11     1.00   iro:6, oir:5

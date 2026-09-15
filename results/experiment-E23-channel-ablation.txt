@@ -1,0 +1,16 @@
+Channel ablation | 151 logs | lag=200 min_int_frac=0.01 report=end
+
+  support:
+    Bose       logs=1    F1=0.800  Avg-Lag=100.0
+    Ceravolo   logs=75   F1=0.907  Avg-Lag=4.3
+    Ostovar    logs=75   F1=0.935  Avg-Lag=17.8
+  confidence:
+    Bose       logs=1    F1=0.800  Avg-Lag=100.0
+    Ceravolo   logs=75   F1=0.689  Avg-Lag=34.3
+    Ostovar    logs=75   F1=0.847  Avg-Lag=16.7
+  support+confidence:
+    Bose       logs=1    F1=0.800  Avg-Lag=100.0
+    Ceravolo   logs=75   F1=0.911  Avg-Lag=5.7
+    Ostovar    logs=75   F1=0.921  Avg-Lag=20.7
+
+Wrote results/channel_ablation.csv

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Declare Concept-Drift — Pipeline, Decision Tree &amp; Metrics</title>
+<style>
+  :root{
+    --bg:#0f1320; --panel:#171c2e; --ink:#e8ecf6; --mut:#9aa6c4; --line:#2c3450;
+    --gate:#1f2a4d; --gateb:#3b6ef0; --occ:#143a2e; --occb:#2bb673; --det:#3a2a4d; --detb:#a06ef0;
+    --good:#2bb673; --mid:#e0a93b; --bad:#e0573b; --chip:#222a44;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:28px}
+  h1{font-size:22px;margin:0 0 4px}
+  h2{font-size:14px;color:var(--mut);font-weight:700;margin:28px 0 10px;letter-spacing:.6px;text-transform:uppercase}
+  .sub{color:var(--mut);margin:0 0 6px;max-width:1100px}
+  .wrap{max-width:1180px;margin:0 auto}
+  /* pipeline ribbon */
+  .ribbon{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:6px 0 4px}
+  .stage{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:150px}
+  .stage .t{font-weight:700}
+  .stage .d{color:var(--mut);font-size:12px;margin-top:2px}
+  .stage.det{border-color:var(--detb)} .stage.conf{border-color:var(--detb)}
+  .stage.tree{border-color:var(--occb)} .stage.out{border-color:var(--gateb)}
+  .arrow{display:flex;align-items:center;color:var(--mut);font-size:20px;padding:0 8px}
+  /* flow tree */
+  .flow{display:flex;flex-direction:column}
+  .row{display:flex;align-items:stretch;gap:16px}
+  .gate{background:var(--gate);border:1px solid var(--gateb);border-radius:10px;padding:12px 16px;min-width:430px}
+  .gate .q{font-weight:700}
+  .gate .lens{color:var(--mut);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;margin-top:3px}
+  .gate.occ{background:var(--occ);border-color:var(--occb)}
+  .yes{display:flex;flex-wrap:wrap;gap:10px;align-items:center;flex:1}
+  .arrowdown{width:430px;display:flex;justify-content:center;color:var(--mut);font-size:18px;margin:2px 0}
+  .leaf{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 11px;min-width:178px}
+  .leaf .name{font-weight:700;letter-spacing:.3px}
+  .leaf .lens{color:var(--mut);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin:2px 0 7px}
+  .mx{display:flex;gap:6px}
+  .ds{flex:1;background:var(--chip);border-radius:7px;padding:4px 6px}
+  .ds .t{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.3px}
+  .ds .v{font-variant-numeric:tabular-nums;font-size:12px}
+  .f1{font-weight:700}
+  .occgroup{border:1px dashed var(--occb);border-radius:12px;padding:12px;background:rgba(43,182,115,.05)}
+  .occgroup .hd{color:var(--occb);font-weight:700;margin-bottom:8px;font-size:12px;letter-spacing:.5px}
+  .grid{display:flex;flex-wrap:wrap;gap:10px}
+  table{border-collapse:collapse;width:100%;margin-top:6px}
+  th,td{padding:6px 9px;text-align:center;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+  th{color:var(--mut);font-weight:600;font-size:12px}
+  td.l{text-align:left;font-weight:600}
+  td.muted{color:var(--mut)}
+  tr.hi td{background:rgba(160,110,240,.12)}
+  .g{color:var(--good)} .m{color:var(--mid)} .b{color:var(--bad)}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gateb);border-radius:8px;padding:12px 14px;color:var(--mut);margin-top:12px}
+  .note b{color:var(--ink)}
+  .legend{display:flex;gap:14px;color:var(--mut);font-size:12px;margin-top:8px;flex-wrap:wrap}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:middle}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--chip);padding:1px 5px;border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Declare Concept-Drift — Detection → Confirmation → Labeling</h1>
+  <p class="sub">Threshold-free, standard-Declare lenses, incremental batch pipeline. Recall-first detection feeds the decision tree using ALL change points as window delimiters; a drift is OUTPUT when its intensity ≥ 1% of tracked relations <b>OR</b> the tree gives it a structural label (dual gate). Metrics on <b>Ostovar</b> (~3000-trace, 2 drifts/log) and <b>Ceravolo-1000</b>. K=0.999 two-proportion z-test (support ∧ confidence), K<sub>born</sub>=0.99, batch≈100, lag=200.</p>
+
+  <h2>Pipeline</h2>
+  <div class="ribbon">
+    <div class="stage det"><div class="t">1 · Detect</div><div class="d">sequential z-test, recall-first (~0.93)</div></div>
+    <div class="arrow">→</div>
+    <div class="stage conf"><div class="t">2 · Confirm (dual gate)</div><div class="d">intensity ≥ 1% OR structural label</div></div>
+    <div class="arrow">→</div>
+    <div class="stage tree"><div class="t">3 · Decision tree</div><div class="d">OCC → BRANCH → SKIP → REORDER → FREQ</div></div>
+    <div class="arrow">→</div>
+    <div class="stage out"><div class="t">4 · Labeled drift</div><div class="d">+ ~1-batch localization</div></div>
+  </div>
+
+  <h2>Detection &amp; confirmation (per change point)</h2>
+  <table id="dtable">
+    <thead><tr><th class="l">dataset</th><th class="l">confirmation gate</th><th>det-P</th><th>det-R</th><th>det-F1</th><th>end-to-end<br>(detected + labeled)</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="note">
+    A detected change point does double duty: it <b>delimits the labeling windows</b> and is a <b>candidate drift</b>. So all CPs (weak + strong) are kept for windowing — that preserves the fine-grained regimes the signature needs — while the <b>dual gate</b> decides what to output. The dual gate (<code>intensity ≥ 1% OR structural label</code>) lifts Ostovar detection <b>F1 0.44 → 0.80</b> <i>and</i> keeps end-to-end labeling at its full level (48/114) — it rescues subtle low-intensity drifts (branch/skip) via their own label, where an intensity-only cut drops one (48→47). Ceravolo never engages the filter (its true-drift intensities all exceed 1%).
+  </div>
+
+  <h2>Decision tree (separation) + per-leaf labeling</h2>
+  <div class="flow" id="flow"></div>
+
+  <h2>Final-leaf metrics (precision / recall / F1)</h2>
+  <table id="mtable">
+    <thead><tr>
+      <th class="l">final leaf</th>
+      <th colspan="3">Ostovar</th><th colspan="3">Ceravolo-1000</th><th>op-prec*</th>
+    </tr>
+    <tr><th class="l"></th><th>P</th><th>R</th><th>F1</th><th>P</th><th>R</th><th>F1</th><th>Ost / Cer</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--good)"></span>F1 ≥ .70</span>
+    <span><span class="dot" style="background:var(--mid)"></span>.40–.70</span>
+    <span><span class="dot" style="background:var(--bad)"></span>&lt; .40</span>
+  </div>
+
+  <div class="note">
+    <b>* Strict vs operation-level.</b> P/R/F1 are <b>strict label-level</b> (each drift must hit the single leaf matching its benchmark label). They look harsh on the occurrence leaves because <b>composites are superpositions</b> routed to one dominant operation (a composite's insert-component is a false-positive on INSERTION and a miss for COMPOSITE). The <b>operation-level precision</b> (last column) — <i>did the drift genuinely perform the identified operation?</i> — is ≈1.0 for every structural leaf. Ceravolo has no clean atomic insertion/removal/substitution label (its <code>re</code>/<code>rp</code> present as duplication/insertion), so those leaves have no true members there.
+  </div>
+  <div class="note">
+    <b>Strong leaves:</b> BRANCH 1.00/1.00 (Cer), 0.64 (Ost); REORDER F1 0.78/0.89; SUBSTITUTION 0.86 (Ost, edge-transfer mirror); LOOP vs DUPLICATION split by the cardinality cascade (Existence(x,≥3) ⇒ loop) — F1 0.77/0.67 (Cer); SKIP 0.71 (Cer); FREQUENCY is the terminal validity verdict (P 1.00, low R by design). <b>Detection</b>: ~0.93 recall, ~1-batch (≈100-case) localization (cdrift Average Lag), F1 0.80–0.93 after the dual gate.
+  </div>
+</div>
+
+<script>
+// ---- detection / confirmation gate metrics ----
+const DET = [
+  {ds:"Ostovar",       gate:"all (recall-first)",        p:0.29,r:0.93,f1:0.44, e2e:"48/114 (.42)", hi:false},
+  {ds:"Ostovar",       gate:"intensity ≥ 1% only",       p:0.76,r:0.90,f1:0.83, e2e:"47/114 (.41)", hi:false},
+  {ds:"Ostovar",       gate:"dual: intensity OR label",  p:0.71,r:0.92,f1:0.80, e2e:"48/114 (.42)", hi:true},
+  {ds:"Ceravolo-1000", gate:"all = intensity = dual",    p:0.93,r:0.93,f1:0.93, e2e:"40/75 (.53)",  hi:true},
+];
+const dtb = document.querySelector("#dtable tbody");
+const cl = f => f>=0.70?"g":f>=0.40?"m":"b";
+DET.forEach(d=>{
+  const tr=document.createElement("tr"); if(d.hi) tr.className="hi";
+  tr.innerHTML = `<td class="l">${d.ds}</td><td class="l">${d.gate}</td>`+
+    `<td>${d.p.toFixed(2)}</td><td>${d.r.toFixed(2)}</td><td class="${cl(d.f1)}">${d.f1.toFixed(2)}</td><td class="muted">${d.e2e}</td>`;
+  dtb.appendChild(tr);
+});
+
+// ---- decision tree structure ----
+const GATES = [
+  {q:"1 · OCC — occurrence count changed?", lens:"Existence(x,1) born-floor crossing · Existence(x,≥2) ↑", occ:true,
+   sub:[
+     {n:"LOOP",        lens:"Existence(x,≥3) cascade"},
+     {n:"DUPLICATION", lens:"Existence(x,2) only"},
+     {n:"REMOVAL",     lens:"single GONE"},
+     {n:"INSERTION",   lens:"single NEW"},
+     {n:"SUBSTITUTION",lens:"NEW+GONE + edge-transfer"},
+     {n:"COMPOSITE",   lens:"≥2 independent ops"},
+   ]},
+  {q:"2 · BRANCH — conditional restructuring?", lens:"Together(a,b) crosses 0↔positive", leaf:{n:"BRANCH", lens:"cf / cm"}},
+  {q:"3 · SKIP — activity made optional?", lens:"Existence(x,1) ↓ but >0 + ChainResponse(x,·) ↓", leaf:{n:"SKIP", lens:"cb"}},
+  {q:"4 · REORDER — order changed, co-occurrence kept?", lens:"Response(a,b)↓ & Response(b,a)↑, Together kept", leaf:{n:"REORDER", lens:"sw / sm / pm / cm"}},
+  {q:"5 · FREQUENCY — routing shift, no structural edit?", lens:"support slides, no crossing (validity verdict)", leaf:{n:"FREQUENCY", lens:"cd / fr (else false-positive)"}},
+];
+
+// ---- per-leaf metrics: leaf -> {ost:[P,R,F1], cer:[P,R,F1], op:[ostPrec, cerPrec|null]} ----
+const M = {
+  LOOP:        {ost:[0.33,0.50,0.40], cer:[0.62,1.00,0.77], op:[1.00,1.00]},
+  DUPLICATION: {ost:[0.00,0.00,0.00], cer:[0.50,1.00,0.67], op:[1.00,1.00]},
+  REMOVAL:     {ost:[0.47,0.47,0.47], cer:[null,null,null], op:[1.00,null]},
+  INSERTION:   {ost:[0.16,0.50,0.24], cer:[0.00,0.00,0.00], op:[0.95,1.00]},
+  SUBSTITUTION:{ost:[0.75,1.00,0.86], cer:[null,null,null], op:[1.00,null]},
+  COMPOSITE:   {ost:[1.00,0.03,0.06], cer:[1.00,0.40,0.57], op:[1.00,1.00]},
+  BRANCH:      {ost:[0.53,0.80,0.64], cer:[1.00,1.00,1.00], op:[null,null]},
+  SKIP:        {ost:[0.27,0.50,0.35], cer:[0.56,1.00,0.71], op:[null,null]},
+  REORDER:     {ost:[0.80,0.76,0.78], cer:[1.00,0.80,0.89], op:[null,null]},
+  FREQUENCY:   {ost:[0.00,0.00,0.00], cer:[1.00,0.40,0.57], op:[null,null]},
+};
+const fmt = v => v===null ? "–" : v.toFixed(2);
+const cls = f1 => f1===null ? "muted" : f1>=0.70 ? "g" : f1>=0.40 ? "m" : "b";
+
+const flow = document.getElementById("flow");
+GATES.forEach((g,i)=>{
+  const row = document.createElement("div"); row.className="row";
+  const gate = document.createElement("div"); gate.className="gate"+(g.occ?" occ":"");
+  gate.innerHTML = `<div class="q">${g.q}</div><div class="lens">${g.lens}</div>`;
+  row.appendChild(gate);
+  const yes = document.createElement("div"); yes.className="yes";
+  if(g.sub){
+    const grp = document.createElement("div"); grp.className="occgroup";
+    grp.innerHTML = `<div class="hd">OCCURRENCE — ordered sub-tree</div>`;
+    const grid = document.createElement("div"); grid.className="grid";
+    g.sub.forEach(s=> grid.appendChild(leafCard(s.n, s.lens)));
+    grp.appendChild(grid); yes.appendChild(grp);
+  } else { yes.appendChild(leafCard(g.leaf.n, g.leaf.lens)); }
+  row.appendChild(yes);
+  flow.appendChild(row);
+  if(i<GATES.length-1){ const a=document.createElement("div"); a.className="arrowdown"; a.textContent="↓ no"; flow.appendChild(a); }
+});
+function leafCard(name, lens){
+  const m = M[name], o=m.ost, c=m.cer; const d=document.createElement("div"); d.className="leaf";
+  d.innerHTML = `<div class="name">${name}</div><div class="lens">${lens}</div>
+    <div class="mx">
+      <div class="ds"><div class="t">Ostovar</div><div class="v">P ${fmt(o[0])} · R ${fmt(o[1])} · <span class="f1 ${cls(o[2])}">F1 ${fmt(o[2])}</span></div></div>
+      <div class="ds"><div class="t">Cer-1000</div><div class="v">P ${fmt(c[0])} · R ${fmt(c[1])} · <span class="f1 ${cls(c[2])}">F1 ${fmt(c[2])}</span></div></div>
+    </div>`;
+  return d;
+}
+
+const order = ["LOOP","DUPLICATION","REMOVAL","INSERTION","SUBSTITUTION","COMPOSITE","BRANCH","SKIP","REORDER","FREQUENCY"];
+const tb = document.querySelector("#mtable tbody");
+order.forEach(L=>{
+  const m=M[L], tr=document.createElement("tr");
+  const cell=(v,k)=>`<td class="${k!==undefined?cls(k):''}">${fmt(v)}</td>`;
+  tr.innerHTML = `<td class="l">${L}</td>`+
+    cell(m.ost[0])+cell(m.ost[1])+cell(m.ost[2],m.ost[2])+
+    cell(m.cer[0])+cell(m.cer[1])+cell(m.cer[2],m.cer[2])+
+    `<td class="muted">${fmt(m.op[0])} / ${fmt(m.op[1])}</td>`;
+  tb.appendChild(tr);
+});
+</script>
+</body>
+</html>

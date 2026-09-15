@@ -1,0 +1,10 @@
+Runtime benchmark | 151 logs | K=0.999 xi=0.01 K_born=0.99
+
+  dataset     logs  med batch  med detect  med label  med total  throughput/s
+  Bose           1     758.83       39.47      0.511     814.20        7369.2
+  Ceravolo      75      90.95        3.53      0.061      96.54       11108.2
+  Ostovar       75    2071.61      207.20      0.795    2322.43        1274.4
+
+Retrospective delay (structural, not measured): delay_batches = trailing window s (auto_config: s=2 if #batches<=6 else 1); delay_cases = s * batch_size.
+
+Wrote results/runtime_results.csv and results/runtime_summary.csv

@@ -1,0 +1,102 @@
+Parameter sweeps | axes=['xi', 's', 'B', 'report'] | 21 unique configs over 24 sweep points | 151 logs | lag=200
+
+  ...25/151 logs
+  ...50/151 logs
+  ...75/151 logs
+  ...100/151 logs
+  ...125/151 logs
+  ...150/151 logs
+  ...151/151 logs
+
+[ok] --verify-anchor: shared-series path agrees with detect_changepoints() on all 151 logs
+
+Wrote results/param_sweeps.csv
+Wrote results/param_sweeps_rows.csv (3171 rows)
+
+Anchor rows (should read Ceravolo ~0.911/5.7 and Ostovar ~0.922/20.7 on the default grid):
+  sweep=xi      Bose       F1=0.8000  Avg-Lag=100.0
+  sweep=xi      Ceravolo   F1=0.9111  Avg-Lag=5.7
+  sweep=xi      Ostovar    F1=0.9215  Avg-Lag=20.7
+  sweep=s       Bose       F1=0.8000  Avg-Lag=100.0
+  sweep=s       Ceravolo   F1=0.9111  Avg-Lag=5.7
+  sweep=s       Ostovar    F1=0.9215  Avg-Lag=20.7
+  sweep=B       Bose       F1=0.8000  Avg-Lag=100.0
+  sweep=B       Ceravolo   F1=0.9111  Avg-Lag=5.7
+  sweep=B       Ostovar    F1=0.9215  Avg-Lag=20.7
+  sweep=report  Bose       F1=0.8000  Avg-Lag=100.0
+  sweep=report  Ceravolo   F1=0.9111  Avg-Lag=5.7
+  sweep=report  Ostovar    F1=0.9215  Avg-Lag=20.7
+
+sweep     value   dataset  logs      F1  Avg-Lag  TP-logs  boundaries
+xi          0.0      Bose     1   0.615    100.0        1          59
+xi          0.0  Ceravolo    75   0.911      5.7       70           9
+xi          0.0   Ostovar    75   0.505     18.0       75          29
+xi        0.005      Bose     1   0.667    100.0        1          59
+xi        0.005  Ceravolo    75   0.911      5.7       70           9
+xi        0.005   Ostovar    75   0.835     19.3       75          29
+xi         0.01      Bose     1   0.800    100.0        1          59
+xi         0.01  Ceravolo    75   0.911      5.7       70           9
+xi         0.01   Ostovar    75   0.922     20.7       75          29
+xi         0.02      Bose     1   0.889    100.0        1          59
+xi         0.02  Ceravolo    75   0.911      5.7       70           9
+xi         0.02   Ostovar    75   0.862     14.7       68          29
+xi         0.03      Bose     1   1.000    100.0        1          59
+xi         0.03  Ceravolo    75   0.844      6.2       65           9
+xi         0.03   Ostovar    75   0.779     12.5       60          29
+xi         0.05      Bose     1   1.000    100.0        1          59
+xi         0.05  Ceravolo    75   0.822      4.8       63           9
+xi         0.05   Ostovar    75   0.640     12.0       50          29
+xi         0.07      Bose     1   1.000    100.0        1          59
+xi         0.07  Ceravolo    75   0.751      5.3       57           9
+xi         0.07   Ostovar    75   0.520      7.5       40          29
+xi          0.1      Bose     1   1.000    100.0        1          59
+xi          0.1  Ceravolo    75   0.662      6.0       50           9
+xi          0.1   Ostovar    75   0.333      1.9       27          29
+s             1      Bose     1   0.800    100.0        1          59
+s             1  Ceravolo    75   0.911      5.7       70           9
+s             1   Ostovar    75   0.922     20.7       75          29
+s             2      Bose     1   0.667      0.0        1          57
+s             2  Ceravolo    75   0.642     92.9       70           7
+s             2   Ostovar    75   0.624     65.1       73          27
+s             3      Bose     1   0.727    125.0        1          55
+s             3  Ceravolo    75   0.604     98.5       67           5
+s             3   Ostovar    75   0.638     71.9       73          25
+s             4      Bose     1   0.667    175.0        1          53
+s             4  Ceravolo    75   0.867      0.0       65           3
+s             4   Ostovar    75   0.658     96.6       73          23
+s             5      Bose     1   0.667    200.0        1          51
+s             5  Ceravolo    75   0.867    100.0       65           1
+s             5   Ostovar    75   0.688    102.1       73          21
+B            25      Bose     1   0.571     37.5        1         239
+B            25  Ceravolo    75   0.756     38.6       68          39
+B            25   Ostovar    75   0.597     38.0       69         119
+B            50      Bose     1   0.727     50.0        1         119
+B            50  Ceravolo    75   0.831      3.0       66          19
+B            50   Ostovar    75   0.798     16.1       73          59
+B           100      Bose     1   0.800    100.0        1          59
+B           100  Ceravolo    75   0.911      5.7       70           9
+B           100   Ostovar    75   0.922     20.7       75          29
+B           150      Bose     1   0.889    150.0        1          39
+B           150  Ceravolo    75   0.902    104.4       68           6
+B           150   Ostovar    75   0.926     78.1       72          19
+B           200      Bose     1   1.000    200.0        1          29
+B           200  Ceravolo    75   0.800    100.0       60           4
+B           200   Ostovar    75   0.961    162.7       75          14
+B           300      Bose     1   0.000                 0          19
+B           300  Ceravolo    75   0.493    100.0       37           3
+B           300   Ostovar    75   0.847    163.0       73           9
+report    start      Bose     1   0.800      1.0        1          59
+report    start  Ceravolo    75   0.911     99.1       70           9
+report    start   Ostovar    75   0.913     87.8       74          29
+report      mid      Bose     1   0.800     50.0        1          59
+report      mid  Ceravolo    75   0.911     54.3       70           9
+report      mid   Ostovar    75   0.913     53.4       74          29
+report      end      Bose     1   0.800    100.0        1          59
+report      end  Ceravolo    75   0.911      5.7       70           9
+report      end   Ostovar    75   0.922     20.7       75          29
+report adaptive      Bose     1   0.800      1.0        1          59
+report adaptive  Ceravolo    75   0.911     60.9       70           9
+report adaptive   Ostovar    75   0.922     78.1       75          29
+report   refine      Bose     1   0.800     20.5        1          59
+report   refine  Ceravolo    75   0.889     68.2       68           9
+report   refine   Ostovar    75   0.913     65.8       74          29

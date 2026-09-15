@@ -1,0 +1,152 @@
+Algorithm,Log Source,Log,Detected Changepoints,Actual Changepoints for Log,F1-Score,Average Lag
+DeclareTree,Bose,bose_log,"[1120, 2400, 2820, 3600, 4380, 4800]","[1199, 2399, 3599, 4799]",0.8,20.5
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_IOR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_IRO,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_OIR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_RIO,[580],[499],1.0,81.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_ROI,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_cb,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_cd,[320],[499],1.0,179.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_cf,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_cp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_lp,[460],[499],1.0,39.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_pl,[],[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_pm,"[220, 780]",[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_re,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_rp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise0_1000_sw,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_IOR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_IRO,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_OIR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_RIO,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_ROI,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_cb,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_cd,[320],[499],1.0,179.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_cf,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_cp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_lp,[460],[499],1.0,39.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_pl,[],[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_pm,"[460, 780]",[499],0.6667,39.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_re,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_rp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise10_1000_sw,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_IOR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_IRO,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_OIR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_RIO,[320],[499],1.0,179.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_ROI,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_cb,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_cd,[320],[499],1.0,179.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_cf,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_cp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_lp,[460],[499],1.0,39.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_pl,[],[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_pm,[400],[499],1.0,99.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_re,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_rp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise15_1000_sw,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_IOR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_IRO,"[440, 900]",[499],0.6667,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_OIR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_RIO,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_ROI,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_cb,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_cd,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_cf,[280],[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_cp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_lp,[460],[499],1.0,39.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_pl,[],[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_pm,[460],[499],1.0,39.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_re,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_rp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise20_1000_sw,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_IOR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_IRO,"[440, 900]",[499],0.6667,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_OIR,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_RIO,[580],[499],1.0,81.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_ROI,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_cb,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_cd,[320],[499],1.0,179.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_cf,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_cp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_lp,[460],[499],1.0,39.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_pl,[],[499],0.0,
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_pm,"[360, 780]",[499],0.6667,139.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_re,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_rp,[440],[499],1.0,59.0
+DeclareTree,Ceravolo,sudden_trace_noise5_1000_sw,[440],[499],1.0,59.0
+DeclareTree,Ostovar,Atomic_ConditionalMove_output_ConditionalMove,"[940, 1940, 2820]","[999, 1999]",0.8,59.0
+DeclareTree,Ostovar,Atomic_ConditionalMove_output_ConditionalMove_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ConditionalMove_output_ConditionalMove_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ConditionalRemoval_output_ConditionalRemoval,"[320, 960, 1320, 1820]","[999, 1999]",0.6667,109.0
+DeclareTree,Ostovar,Atomic_ConditionalRemoval_output_ConditionalRemoval_2,"[960, 1820]","[999, 1999]",1.0,109.0
+DeclareTree,Ostovar,Atomic_ConditionalRemoval_output_ConditionalRemoval_5,"[960, 1920]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ConditionalToSequence_output_ConditionalToSequence,"[940, 1960]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Atomic_ConditionalToSequence_output_ConditionalToSequence_2,"[920, 1960]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ConditionalToSequence_output_ConditionalToSequence_5,"[940, 1620, 1960]","[999, 1999]",0.8,49.0
+DeclareTree,Ostovar,Atomic_Frequency_output_Frequency,"[320, 940, 1420, 1920, 2120]","[999, 1999]",0.5714,69.0
+DeclareTree,Ostovar,Atomic_Frequency_output_Frequency_2,"[320, 940, 1920, 2120]","[999, 1999]",0.6667,69.0
+DeclareTree,Ostovar,Atomic_Frequency_output_Frequency_5,"[320, 940, 1960, 2120]","[999, 1999]",0.6667,49.0
+DeclareTree,Ostovar,Atomic_Loop_output_Loop,"[920, 1940, 2600]","[999, 1999]",0.8,69.0
+DeclareTree,Ostovar,Atomic_Loop_output_Loop_2,[1620],"[999, 1999]",0.0,
+DeclareTree,Ostovar,Atomic_Loop_output_Loop_5,"[940, 1980]","[999, 1999]",1.0,39.0
+DeclareTree,Ostovar,Atomic_ParallelMove_output_ParallelMove,"[940, 1940, 2980]","[999, 1999]",0.8,59.0
+DeclareTree,Ostovar,Atomic_ParallelMove_output_ParallelMove_2,"[960, 1940]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Atomic_ParallelMove_output_ParallelMove_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ParallelRemoval_output_ParallelRemoval,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ParallelRemoval_output_ParallelRemoval_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ParallelRemoval_output_ParallelRemoval_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_ParallelToSequence_output_ParallelToSequence,"[960, 1940, 2980]","[999, 1999]",0.8,49.0
+DeclareTree,Ostovar,Atomic_ParallelToSequence_output_ParallelToSequence_2,[960],"[999, 1999]",0.6667,39.0
+DeclareTree,Ostovar,Atomic_ParallelToSequence_output_ParallelToSequence_5,"[980, 1920]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Atomic_SerialMove_output_SerialMove,"[940, 1940, 2140]","[999, 1999]",0.8,59.0
+DeclareTree,Ostovar,Atomic_SerialMove_output_SerialMove_2,"[920, 1940, 2140]","[999, 1999]",0.8,69.0
+DeclareTree,Ostovar,Atomic_SerialMove_output_SerialMove_5,"[940, 1940, 2140]","[999, 1999]",0.8,59.0
+DeclareTree,Ostovar,Atomic_SerialRemoval_output_SerialRemoval,"[920, 1940]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_SerialRemoval_output_SerialRemoval_2,"[920, 1940]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_SerialRemoval_output_SerialRemoval_5,"[920, 1940]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_Skip_output_Skip,"[940, 1960]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Atomic_Skip_output_Skip_2,"[940, 1960]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Atomic_Skip_output_Skip_5,"[940, 1920]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_Substitute_output_Substitute,"[920, 1940]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_Substitute_output_Substitute_2,"[920, 1940]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_Substitute_output_Substitute_5,"[920, 1940]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Atomic_Swap_output_Swap,"[940, 1120, 1940]","[999, 1999]",0.8,59.0
+DeclareTree,Ostovar,Atomic_Swap_output_Swap_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Atomic_Swap_output_Swap_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_IOR_output_IOR,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_IOR_output_IOR_2,"[940, 1920]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Composite_IOR_output_IOR_5,"[940, 1920]","[999, 1999]",1.0,69.0
+DeclareTree,Ostovar,Composite_IRO_output_IRO,"[940, 1320, 1960]","[999, 1999]",0.8,49.0
+DeclareTree,Ostovar,Composite_IRO_output_IRO_2,"[940, 1960]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Composite_IRO_output_IRO_5,"[940, 1960]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Composite_OIR_output_OIR,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_OIR_output_OIR_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_OIR_output_OIR_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_ORI_output_ORI,"[480, 540, 920, 1820, 2720]","[999, 1999]",0.5714,129.0
+DeclareTree,Ostovar,Composite_ORI_output_ORI_2,"[920, 1780, 1820]","[999, 1999]",0.8,129.0
+DeclareTree,Ostovar,Composite_ORI_output_ORI_5,"[920, 1820]","[999, 1999]",1.0,129.0
+DeclareTree,Ostovar,Composite_RIO_output_RIO,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_RIO_output_RIO_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_RIO_output_RIO_5,"[920, 1980]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Composite_ROI_output_ROI,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_ROI_output_ROI_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Composite_ROI_output_ROI_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_IOR_output_IOR,"[80, 220, 880, 920, 1840]","[999, 1999]",0.5714,119.0
+DeclareTree,Ostovar,Nested_IOR_output_IOR_2,"[920, 1840]","[999, 1999]",1.0,119.0
+DeclareTree,Ostovar,Nested_IOR_output_IOR_5,"[920, 1840]","[999, 1999]",1.0,119.0
+DeclareTree,Ostovar,Nested_IRO_output_IRO,"[940, 1480, 1900]","[999, 1999]",0.8,79.0
+DeclareTree,Ostovar,Nested_IRO_output_IRO_2,"[880, 940, 1480, 1900]","[999, 1999]",0.6667,79.0
+DeclareTree,Ostovar,Nested_IRO_output_IRO_5,"[940, 1900]","[999, 1999]",1.0,79.0
+DeclareTree,Ostovar,Nested_OIR_output_OIR,"[960, 1940]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Nested_OIR_output_OIR_2,"[960, 1940]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Nested_OIR_output_OIR_5,"[960, 1940]","[999, 1999]",1.0,49.0
+DeclareTree,Ostovar,Nested_ORI_output_ORI,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_ORI_output_ORI_2,"[940, 1780, 1940]","[999, 1999]",0.8,59.0
+DeclareTree,Ostovar,Nested_ORI_output_ORI_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_RIO_output_RIO,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_RIO_output_RIO_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_RIO_output_RIO_5,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_ROI_output_ROI,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_ROI_output_ROI_2,"[940, 1940]","[999, 1999]",1.0,59.0
+DeclareTree,Ostovar,Nested_ROI_output_ROI_5,"[940, 1920]","[999, 1999]",1.0,69.0

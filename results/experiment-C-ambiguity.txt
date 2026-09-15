@@ -1,0 +1,23 @@
+Ambiguity analysis | dataset=both sizes=1000 | K_born=0.99
+
+  dataset     scored  single  multi  amb_rate  resolved_ok  resolution_rate
+  ceravolo        70      24     43     0.614           20            0.465
+  ostovar        106      37     64     0.604           21            0.328
+  ALL            176      61    107     0.608           41            0.383
+
+  Cross-dataset consistency (patterns present in both):
+    code   consistent   ostovar dist / ceravolo dist
+    cb           True   SKIP:4|OTHER:2 / SKIP:5
+    cf           True   BRANCH:6 / BRANCH:5
+    ior          True   INSERTION:3|REMOVAL:3 / INSERTION:5
+    iro         False   SUBSTITUTION:2|COMPOSITE:1 / COMPOSITE:5
+    lp           True   LOOP:3|OTHER:3 / LOOP:5
+    oir         False   INSERTION:3|REMOVAL:3 / COMPOSITE:5
+    pm           True   REORDER:6 / REORDER:3|SKIP:2
+    re          False   REMOVAL:3|INSERTION:3 / LOOP:3|SKIP:2
+    rio         False   LOOP:3|BRANCH:2|DUPLICATION:1 / DUPLICATION:5
+    roi         False   REMOVAL:3|INSERTION:3 / INSERTION:5
+    rp          False   SUBSTITUTION:6 / INSERTION:5
+    sw           True   REORDER:4|SKIP:2 / REORDER:5
+
+Wrote results/ambiguity_results.csv, results/ambiguity_summary.csv, results/cross_dataset_consistency.csv

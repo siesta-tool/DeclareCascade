@@ -1,0 +1,10 @@
+dataset,channels,logs,P,R,F1,Avg-Lag
+Bose,support,1,0.6667,1.0,0.8,100.0
+Ceravolo,support,75,0.9211,0.9333,0.9067,4.3
+Ostovar,support,75,0.9231,0.96,0.9351,17.8
+Bose,confidence,1,0.6667,1.0,0.8,100.0
+Ceravolo,confidence,75,0.5147,0.9333,0.6889,34.3
+Ostovar,confidence,75,0.8649,0.8533,0.8473,16.7
+Bose,support+confidence,1,0.6667,1.0,0.8,100.0
+Ceravolo,support+confidence,75,0.9333,0.9333,0.9111,5.7
+Ostovar,support+confidence,75,0.8315,0.9867,0.9215,20.7

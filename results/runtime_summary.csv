@@ -1,0 +1,4 @@
+dataset,n_logs,median_batch_ms,p95_batch_ms,median_detect_ms,p95_detect_ms,median_label_ms,p95_label_ms,median_total_ms,p95_total_ms,throughput_cases_per_sec
+Bose,1,758.826,758.826,39.467,39.467,0.511,0.511,814.202,814.202,7369.2
+Ceravolo,75,90.95,103.397,3.53,4.373,0.061,0.117,96.54,109.748,11108.2
+Ostovar,75,2071.605,2820.336,207.197,321.37,0.795,2.574,2322.43,3202.938,1274.4

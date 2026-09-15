@@ -1,0 +1,52 @@
+# This repo is a set of flat scripts under scripts/, not an installable package: there is no
+# build-system stanza and nothing here produces a distribution. The file exists for the dependency
+# list and for the ruff / pytest configuration.
+
+[project]
+name = "declare-concept-drift"
+version = "1.0.0"
+description = "Threshold-free concept-drift detection and labeling from Declare relations"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ioannis Mavroudopoulos" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24,<3",
+    "pandas>=2.0",
+    "pulp>=2.7",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.5",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM", "RET", "ARG"]
+ignore = ["E501"]
+
+# scripts/ is on sys.path rather than installed, so ruff cannot infer these are local
+[tool.ruff.lint.isort]
+known-first-party = ["batch_support_series", "cdrift_approach", "detect_drift_incremental",
+                     "diagnose_decision_tree", "log_io", "signature"]
+
+[tool.ruff.lint.per-file-ignores]
+# the synthetic log generators share one lambda(i) interface; most of them ignore the index
+"scripts/synthetic_eval.py" = ["ARG005"]
+# The decision-tree lenses and their report tables are written as dense, column-aligned
+# blocks -- paired accumulators on one line (`hits += ok; tot += scored`) read as a single
+# step there, and splitting them costs more than it buys. E701/E702 are style rules, so we
+# say so here rather than reformat. B023: every nested function is called inside the same
+# loop iteration that defines the variable, so late binding cannot bite -- audited case by
+# case (:881, :883, :884, :934).
+"scripts/diagnose_decision_tree.py" = ["E701", "E702", "B023"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]

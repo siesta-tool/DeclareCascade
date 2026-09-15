@@ -1,0 +1,55 @@
+=== report mode: start ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.800           1.0         1/1
+Ceravolo      75    0.911          99.1       70/75
+Ostovar       75    0.913          87.8       74/75
+
+Wrote per-log results -> results/cdrift-eval-start.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== report mode: mid ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.800          50.0         1/1
+Ceravolo      75    0.911          54.3       70/75
+Ostovar       75    0.913          53.4       74/75
+
+Wrote per-log results -> results/cdrift-eval-mid.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== report mode: end ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.800         100.0         1/1
+Ceravolo      75    0.911           5.7       70/75
+Ostovar       75    0.922          20.7       75/75
+
+Wrote per-log results -> results/cdrift-eval-end.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== report mode: adaptive ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.800           1.0         1/1
+Ceravolo      75    0.911          60.9       70/75
+Ostovar       75    0.922          78.1       75/75
+
+Wrote per-log results -> results/cdrift-eval-adaptive.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
+=== report mode: refine ===
+Our lean Declare-drift detector | cdrift scoring (F1 + Average Lag) | lag=200 | min_int_frac=0.01 | 151 logs
+
+dataset     logs  mean F1  mean Avg-Lag  logs w/ TP
+Bose           1    0.800          20.5         1/1
+Ceravolo      75    0.889          68.2       68/75
+Ostovar       75    0.913          65.8       74/75
+
+Wrote per-log results -> results/cdrift-eval-refine.csv
+Columns match cdrift algorithm_results.csv (Algorithm, Log Source, Log, Detected/Actual Changepoints, F1-Score, Average Lag).
+
