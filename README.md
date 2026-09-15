@@ -188,7 +188,6 @@ and reporting how F1 and Average Lag move around it.
 |---|---|
 | `cdrift-eval.csv`, `cdrift-eval-*.csv` | per-log detection results at the default config and at each swept localisation policy |
 | `cdrift-comparison.txt` | head-to-head F1/lag table vs. the 9 cdrift baselines, plus per-log correlation |
-| `decision-tree.html` | interactive view of the DeclareCascade labelling gates |
 | `figures/` | the figures described above, `.png` and `.pdf` |
 | `label_accuracy_results.csv` / `_summary.csv` | per-drift and aggregate labelling accuracy |
 | `ambiguity_results.csv` / `_summary.csv`, `cross_dataset_consistency.csv` | multi-gate ambiguity analysis |
