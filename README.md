@@ -39,7 +39,7 @@ Evaluated end-to-end against the [cdrift benchmark](#comparing-against-other-det
 Ceravolo, Ostovar), the detector reaches accuracy and F1 comparable to state-of-the-art drift
 detectors, while additionally producing the constraint-level, structural explanation those
 detectors don't. Full numbers, figures and the labelling breakdown are in
-[Results](#results).
+[Results](#results). 
 
 ## How to run
 
@@ -175,6 +175,12 @@ Runtime (`results/runtime_summary.csv`) - median end-to-end latency per batch ra
 
 Parameter-sweep findings, including which of the paper's own claims the sweeps confirm or
 contradict, are written up in full in `results/param_sweeps_findings.md`.
+
+**Disclaimer.** All results above use one fixed configuration across all three datasets, with no
+per-dataset tuning. [`sweep-analysis.pdf`](sweep-analysis.pdf) is the paper's supplementary
+material for this choice: independent sweeps of the intensity threshold, trailing-window width,
+batch size, statistical confidence, and localisation policy, each centred on the selected default
+and reporting how F1 and Average Lag move around it.
 
 ### `results/` folder map
 
