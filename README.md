@@ -14,7 +14,7 @@ problems for **sudden drifts** by reading the change directly off the process's 
 The pipeline has two stages:
 
 **Detection.** The event stream is consumed online, in batches of consecutive cases. For each
-batch, the support and confidence of the `ChainResponse`/`Response` Declare relations between
+batch, the support and confidence of the `Existence`/`ChainResponse`/`Response` Declare relations between
 every pair of activities are measured (*Batching and Measuring*). A pooled two-proportion z-test,
 governed by a statistical confidence `K`, asks batch by batch whether a relation's rate has moved
 by more than sampling noise can explain — the required shift shrinks automatically as the batch
