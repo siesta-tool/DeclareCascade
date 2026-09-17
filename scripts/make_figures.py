@@ -1,43 +1,6 @@
 #!/usr/bin/env python3
 """Generate the evaluation figures for the DeclareCascade paper.
 
-  fig1_detection_prf.{png,pdf}             Grouped P/R/F1 bars, our method + the strongest
-                                            Adams baselines: one compact panel per multi-log
-                                            dataset (Ceravolo, Ostovar) sharing a y axis, with
-                                            the metric legend and the method-code key stacked
-                                            in the gap between panels. Mirrors Adams et al.'s
-                                            own Figure 3 layout. Single-log datasets (Bose) get
-                                            their own fig1_detection_prf_<dataset> file.
-  fig2_labelling_by_group.{png,pdf}        Labelling accuracy by pattern-mechanism group
-                                            (Single-mechanism / Ambiguous / Composite /
-                                            Frequency / Inexpressible), correct_unambiguous vs
-                                            correct_resolved stacked, n annotated per bar.
-  fig3_cd_<scope>.{png,pdf}                Critical-difference diagram (Friedman + Nemenyi
-                                            post-hoc) over per-log F1: average rank per method
-                                            with cliques of statistically indistinguishable
-                                            methods. Per dataset and pooled.
-  fig4_labelling_by_group_per_dataset      Figure 2's groups split Ostovar vs Ceravolo, since
-                    .{png,pdf}              the pooled view hides large per-dataset splits.
-  fig5_param_sweeps.{png,pdf}               Mean F1 (top row) and mean localisation error
-                                            (bottom row, Avg-Lag in cases) across four
-                                            one-at-a-time detection-parameter sweeps -- intensity
-                                            threshold xi, trailing-window width s, batch size
-                                            |B|, and the localisation policy -- one column per
-                                            sweep, Ceravolo vs Ostovar. Replaces the xi-only
-                                            sensitivity table. x axes are ordinal (equal-spaced
-                                            swept values); the default config is marked in every
-                                            panel; cells with too few statistically testable
-                                            boundaries are excluded (the line breaks) rather than
-                                            plotted, and lag cells averaged over too few logs get
-                                            a hollow marker. Reads results/param_sweeps.csv
-                                            (scripts/param_sweeps.py).
-
-All figures are title-free (caption them in LaTeX), Times-family serif, drawn in the Okabe-Ito
-colourblind-safe palette, and reuse the cdrift scoring functions (evaluate_cdrift.py, verbatim
-from Adams et al.) so our method and the baselines are scored identically. Figures 2 and 4 reuse
-label_accuracy_results.csv (Experiment B.4). All figures are wide and short; figures 4 and 5
-least so, since figure 4 carries twice as many bars and figure 5 stacks two metric rows.
-
   python3 scripts/make_figures.py --out-dir results/figures
 """
 
@@ -349,8 +312,9 @@ def make_fig2(label_accuracy_csv: Path, out_dir: Path, width_in: float, aspect: 
         stats.append({"group": g, "n": n, "cu": cu, "cr": cr,
                       "accuracy": (cu + cr) / n if n else 0.0})
 
-    # Wide-and-short to match figure 3: the group names then fit horizontally (no rotation) and
-    # the per-bar annotation goes on one line, both of which buy back vertical space.
+    # Narrower than figure 3 on purpose: the group names are rotated so they still fit without
+    # overlapping, which buys back width at the cost of a bit of extra height (tight bbox grows
+    # to fit the rotated labels).
     fig, ax = plt.subplots(figsize=(width_in, width_in / aspect))
     x = np.arange(len(stats))
     unamb = [s["cu"] / s["n"] if s["n"] else 0.0 for s in stats]
@@ -362,11 +326,12 @@ def make_fig2(label_accuracy_csv: Path, out_dir: Path, width_in: float, aspect: 
            color=COLORS_CORRECT["resolved"], zorder=3)
     for i, s in enumerate(stats):
         ax.text(i, s["accuracy"] + 0.025, f"{s['accuracy']*100:.0f}% ($n$={s['n']})",
-                ha="center", va="bottom", fontsize=font_size - 6)
+                ha="center", va="bottom", fontsize=font_size - 3)
 
     ax.set_xticks(x)
-    ax.set_xticklabels([s["group"] for s in stats], fontsize=font_size - 5)
-    ax.set_ylabel("Labelling accuracy")
+    ax.set_xticklabels([s["group"] for s in stats], fontsize=font_size - 1,
+                       rotation=20, ha="right")
+    ax.set_ylabel("Labelling accuracy", fontsize=font_size - 2)
     ax.set_ylim(0, 1.0)
     ax.set_yticks(np.arange(0, 1.01, 0.25))
     ax.yaxis.set_major_formatter(lambda v, _: f"{v*100:.0f}%")
@@ -757,10 +722,12 @@ def main() -> int:
                      help="figure 3 vertical inches per label row -- lower = more compact")
     ap.add_argument("--cd-gutter-in", type=float, default=1.35,
                      help="figure 3 inches reserved per side for the method labels")
-    ap.add_argument("--fig2-aspect", type=float, default=4.24,
-                     help="figure 2 width:height; default matches the pooled CD diagram at the "
-                          "default --cd-width (figure 3's height is content-driven, so re-tune "
-                          "this if you change --cd-width or the method count)")
+    ap.add_argument("--fig2-width", type=float, default=8.64,
+                     help="figure 2 width in inches (independent of --cd-width: the rotated "
+                          "group labels let figure 2 run narrower than figure 3)")
+    ap.add_argument("--fig2-aspect", type=float, default=3.0,
+                     help="figure 2 width:height before the tight bbox grows it to fit the "
+                          "rotated labels")
     ap.add_argument("--fig1-width", type=float, default=15.0,
                      help="figure 1 width in inches (wider = wider panels)")
     ap.add_argument("--fig1-aspect", type=float, default=4.4,
@@ -835,7 +802,7 @@ def main() -> int:
         if not args.label_accuracy_csv.exists():
             raise SystemExit(f"missing {args.label_accuracy_csv} -- run label_accuracy.py first")
         if args.only in ("2", "all"):
-            make_fig2(args.label_accuracy_csv, args.out_dir, args.cd_width, args.fig2_aspect,
+            make_fig2(args.label_accuracy_csv, args.out_dir, args.fig2_width, args.fig2_aspect,
                       args.font_size)
         if args.only in ("4", "all"):
             make_fig4(args.label_accuracy_csv, args.out_dir, args.figsize, args.fig4_aspect,
